@@ -1,0 +1,25 @@
+{
+  "name": "12-Employee_Tracker",
+  "version": "1.0.0",
+  "description": "This \"Employee Tracker\" application uses a CMS or Content Management System, to allow users to interact and access information on the database.",
+  "main": "employeeTrackerCode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon employeeTrackerCode.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/britt-bot/12-Employee_Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/britt-bot/12-Employee_Tracker/issues"
+  },
+  "homepage": "https://github.com/britt-bot/12-Employee_Tracker#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1"
+  }
+}
