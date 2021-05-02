@@ -4,11 +4,11 @@ USE employeetracker_DB;
 
 CREATE TABLE department(
   id INTEGER AUTO_INCREMENT NOT NULL,
-  department_name VARCHAR(30) NOT NULL,
+  `name` VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
 
-CREATE TABLE job(
+CREATE TABLE `role`(
   id INTEGER AUTO_INCREMENT NOT NULL,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL(18,2) NOT NULL,

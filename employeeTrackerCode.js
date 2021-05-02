@@ -46,14 +46,17 @@ const runSearch = () => {
     .then((answer) => {      
       switch (answer.action) {
       case 'View all Employees':
+        //add call sql employee list
         employeeSearch();
         break;
 
       case 'View all Employees by Department':
+        //add call sql department list
         deptSearch();
         break;
 
       case 'View all Employees by Manager':
+        //add call sql manager list
         managerSearch();
         break;
 
@@ -89,29 +92,13 @@ const runSearch = () => {
 };
 
 const employeeSearch = () => {
-  inquirer
-  .prompt({
-    name: 'employee',
-    type: 'input',
-    message: 'Which employee would you like to view?',
-  })
-  .then((answer) => {
-    console.log(answer.employee);
+  const query = 'SELECT * FROM employee';
     connection.query(
-      'SELECT * FROM employee WHERE ?',
-      { employee: answer.employee },
-      (err, res) => {
-        if (res[0]) {
-          console.log(
-            `Employee ID: ${id} || First Name: ${first_name} || Last Name: ${last_name} || Role: ${role_id} || Manager: ${manager_id}`          
-          );
-        } else {
-          console.error(`No results for ${answer.employee}`);
-        }
+      query, (err, res) => {
+        console.table(res);
         runSearch();
       }
-    );
-  });
+    )
 };
 
 // first attempt
@@ -210,6 +197,8 @@ const managerSearch = () => {
 // };
 
 const addEmployee = () => {
+  'SELECT * ROLES'
+  'SELECT * MANAGER'
   inquirer
   .prompt({
     name: 'firstname',
@@ -225,13 +214,27 @@ const addEmployee = () => {
     name: 'role',
     type: 'input',
     message: "What is the employee's role?",
+    // // get role name and id 
+    // choices: [{ name: 'Engineering', value: 4 }]
   },
   {
     name: 'manager',
     type: 'input',
     message: "Who is the employee's manager?",
+    // get manager id 
+    // choices: 
   })
-  .then((answer) => { 
+  .then((answer) => {
+     console.log(answer);
+     let firstName = answer.firstName
+     let lastName = answer.lastName
+     let role = answer.role
+     let manager = answer.manager
+     // look at ice cream crud
+     const query = 'INSERT INTO -KEYWORD- SET ?',
+     {
+
+     } 
   })
 };
 
@@ -304,3 +307,29 @@ const viewRoles = () => {
     );
   });
 };
+
+
+
+// inquirer
+//   .prompt({
+//     name: 'employee',
+//     type: 'input',
+//     message: 'Which employee would you like to view?',
+//   })
+//   .then((answer) => {
+//     console.log(answer.employee);
+//     connection.query(
+//       'SELECT * FROM employee WHERE ?',
+//       { employee: answer.employee },
+//       (err, res) => {
+//         if (res[0]) {
+//           console.log(
+//             `Employee ID: ${id} || First Name: ${first_name} || Last Name: ${last_name} || Role: ${role_id} || Manager: ${manager_id}`          
+//           );
+//         } else {
+//           console.error(`No results for ${answer.employee}`);
+//         }
+//         runSearch();
+//       }
+//     );
+//   });
