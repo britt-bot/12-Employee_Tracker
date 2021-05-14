@@ -22,22 +22,22 @@ CREATE TABLE employee(
   id INTEGER AUTO_INCREMENT NOT NULL,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
-  job_id INTEGER NOT NULL,
+  role_id INTEGER NOT NULL,
   manager_id INTEGER NULL,
   PRIMARY KEY (id),
   INDEX manager_ind (manager_id),
-  INDEX job_id (job_id),
+  INDEX role_id (role_id),
   CONSTRAINT manager_fk FOREIGN KEY (manager_id) REFERENCES employee (id),
-  CONSTRAINT job_fk FOREIGN KEY (job_id) REFERENCES job (id)
+  CONSTRAINT role_fk FOREIGN KEY (role_id) REFERENCES `role` (id)
 );
 
 SELECT * FROM department;
-SELECT * FROM job;
+SELECT * FROM `role`;
 SELECT * FROM employee;
 
 
-INSERT INTO department (department_name) VALUES ('Engineering');
-INSERT INTO job (title, salary, department_id) VALUES ('Software Engineer', 120000.00, 1);
-INSERT INTO job (title, salary, department_id) VALUES ('Manager', 40000.00, 1);
-INSERT INTO employee (first_name, last_name, job_id) VALUES ('Jimbo', 'Frankfurter', 2);
-INSERT INTO employee (first_name, last_name, job_id, manager_id) VALUES ('Britt', 'Bot', 1, 2);
+INSERT INTO department (`name`) VALUES ('Engineering');
+INSERT INTO `role` (title, salary, department_id) VALUES ('Software Engineer', 120000.00, 1);
+INSERT INTO `role` (title, salary, department_id) VALUES ('Manager', 40000.00, 1);
+INSERT INTO employee (first_name, last_name, role_id) VALUES ('Jimbo', 'Frankfurter', 2);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Britt', 'Bot', 1, 2);

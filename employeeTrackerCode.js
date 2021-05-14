@@ -1,6 +1,8 @@
 // join employee into itself
 // join FROM employee INNER JOIN employee ON (employee.id = employee.managerId)
-//(table.field = table.field)
+// (table.field = table.field)
+
+// search dept = eng = 1 [{ department: 'Engineering', id: 1}]
 
 
 const mysql = require('mysql');
@@ -101,100 +103,87 @@ const employeeSearch = () => {
     )
 };
 
-// first attempt
-//   const query = 'SELECT * FROM employee WHERE ?';
-//     connection.query(
-//       query, { employee: answer.employee }, 
-//       (err, res) => {
-//       res.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
-//         console.log(
-//           `Employee ID: ${id} || First Name: ${first_name} || Last Name: ${last_name} || Role: ${role_id} || Manager: ${manager_id}`
-//         );
-//       });
-//       runSearch();
-//     });
-// };
+const employeeByDept = (depart) => {
+  // const query = `SELECT id FROM department WHERE department.name = '${depart}'`;
+  const query = `SELECT employee.id, employee.first_name, employee.last_name, role.title FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id WHERE department.id = ${depart}`;
+  console.log(query);
+  connection.query(
+    query, (err, res) => {
+      console.table(res);
+      runSearch();
+    }
+  )
+};
+
+const employeeByMgr = (mgr) => {
+  // const query = `SELECT id FROM department WHERE department.name = '${depart}'`;
+  const query = `SELECT employee.id, employee.first_name, employee.last_name, role.title FROM employee LEFT JOIN employee ON employee.manager_id = employee.id LEFT JOIN employee ON employee.manager_id = employee.id WHERE employee.id = ${mgr}`;
+  console.log(query);
+  connection.query(
+    query, (err, res) => {
+      console.table(res);
+      runSearch();
+    }
+  )
+};
 
 const deptSearch = () => {
   inquirer
   .prompt({
     name: 'department',
-    type: 'input',
+    type: 'list',
     message: 'Which department would you like to view?',
+    // choices: [{ name: 'Engineering', value: 4 }]
   })
   .then((answer) => {
     console.log(answer.department);
-    connection.query(
-      'SELECT * FROM department WHERE ?',
-      { department: answer.department },
-      (err, res) => {
-        if (res[0]) {
-          console.log(
-            `Department: ${department_name}`
-          );
-        } else {
-          console.error(`No results for ${answer.department}`);
-        }
-        runSearch();
-      }
-    );
+    employeeByDept(answer.department[0].toUpperCase() + answer.department.slice(1).toLowerCase());
+    // connection.query(
+    //   'SELECT * FROM department WHERE ?',
+    //   { department: answer.department },
+    //   (err, res) => {
+    //     if (res[0]) {
+    //       console.log(
+    //         `Department: ${department_name}`
+    //       );
+    //     } else {
+    //       console.error(`No results for ${answer.department}`);
+    //     }
+    //     runSearch();
+    //   }
+    // );
   });
 };
 
-// first attempt
-//   .then((answer) => { 
-//     const query = 'SELECT name FROM department WHERE ?';
-//     connection.query(query, { department: answer.department }, (err, res) => {
-//       res.forEach(({ name }) => {
-//         console.log(
-//           `Department: ${name}`
-//         );
-//       });
-//       runSearch();
-//     })
-//   })
-// };
 
 const managerSearch = () => {
   inquirer
   .prompt({
     name: 'manager',
-    type: 'input',
+    type: 'list',
     message: 'Which manager would you like to view?',
+    // choices: [{ name: 'Engineering', value: 4 }]
   })
   .then((answer) => {
     console.log(answer.department);
-    connection.query(
-      'SELECT * FROM department WHERE ?',
-      { employee: answer.department },
-      (err, res) => {
-        if (res[0]) {
-          console.log(
-            `Department: ${department_name}`
-          );
-        } else {
-          console.error(`No results for ${answer.department}`);
-        }
-        runSearch();
-      }
-    );
+    employeeByMgr(answer.department[0].toUpperCase() + answer.department.slice(1).toLowerCase());
+    // connection.query(
+    //   'SELECT * FROM department WHERE ?',
+    //   { employee: answer.department },
+    //   (err, res) => {
+    //     if (res[0]) {
+    //       console.log(
+    //         `Department: ${department_name}`
+    //       );
+    //     } else {
+    //       console.error(`No results for ${answer.department}`);
+    //     }
+    //     runSearch();
+    //   }
+    // );
   });
 };
 
-
-// first attempt
-//   .then((answer) => { 
-//     const query = 'SELECT manager_id FROM employee WHERE ?';
-//     connection.query(query, { employee: answer.employee }, (err, res) => {
-//       res.forEach(({ manager_id }) => {
-//         console.log(
-//           `Manager Name: ${manager_id}`
-//         );
-//       });
-//       runSearch();
-//     })
-//   })
-// };
 
 const addEmployee = () => {
   'SELECT * ROLES'
@@ -212,17 +201,17 @@ const addEmployee = () => {
   },
   {
     name: 'role',
-    type: 'input',
+    type: 'list',
     message: "What is the employee's role?",
     // // get role name and id 
     // choices: [{ name: 'Engineering', value: 4 }]
   },
   {
     name: 'manager',
-    type: 'input',
+    type: 'list',
     message: "Who is the employee's manager?",
     // get manager id 
-    // choices: 
+    // choices: [{ name: '', value: }]
   })
   .then((answer) => {
      console.log(answer);
@@ -231,10 +220,10 @@ const addEmployee = () => {
      let role = answer.role
      let manager = answer.manager
      // look at ice cream crud
-     const query = 'INSERT INTO -KEYWORD- SET ?',
-     {
+    //  const query = 'INSERT INTO -KEYWORD- SET ?',
+    //  {
 
-     } 
+    //  } 
   })
 };
 
