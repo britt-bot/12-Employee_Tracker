@@ -1,3 +1,4 @@
+![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 # 12-Employee_Tracker
 ## Description 
 
@@ -27,14 +28,7 @@ Open the desired web browser and go to the page url for either the Repo or the D
 
 ## Usage 
 
-A README is a document used to explain an application. Including what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions.
-
-![scrnshot](img url)
-
-![scrnshot1](img url)
-
-![scrnshot2](img url)
-
+This apps is used to create, monitor and edit employee information.
 
 
 ## Credits
