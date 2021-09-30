@@ -1,5 +1,5 @@
 ![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-# 12-Employee_Tracker
+# Employee_Tracker
 ## Description 
 
 This "Employee Tracker" application uses a CMS or Content Management System, to allow users to interact and access information on the database. 
@@ -19,14 +19,14 @@ This table of contents is to make it easy for users to find what they need.
 
 Open the desired web browser and go to the page url for either the Repo or the Deployed project.
 
-[Employee Tracker GitHub Repo](https://github.com/britt-bot/12-Employee_Tracker)
+[Employee Tracker Repo](https://github.com/britt-bot/12-Employee_Tracker)
 
-[Employee Tracker GitHub Deployed](https://britt-bot.github.io/12-Employee_Tracker)
+[Employee Tracker Deploy](https://britt-bot.github.io/12-Employee_Tracker)
 
 
 ## Usage 
 
-This apps is used to create, monitor and edit employee information.
+This app is used to create, monitor and edit employee information.
 
 
 ## Credits
