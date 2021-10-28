@@ -19,9 +19,9 @@ This table of contents is to make it easy for users to find what they need.
 
 Open the desired web browser and go to the page url for either the Repo or the Deployed project.
 
-[Employee Tracker Repo](https://github.com/britt-bot/12-Employee_Tracker)
+[Employee Tracker Repo](https://github.com/britt-bot/Employee_Tracker)
 
-[Employee Tracker Deploy](https://britt-bot.github.io/12-Employee_Tracker)
+[Employee Tracker Deploy](https://employee-tracker--homework-12.herokuapp.com)
 
 
 ## Usage 
