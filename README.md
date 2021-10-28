@@ -28,6 +28,8 @@ Open the desired web browser and go to the page url for either the Repo or the D
 
 This app is used to create, monitor and edit employee information.
 
+![screenshot](https://user-images.githubusercontent.com/77466708/139320319-0e47650b-2a4e-4c45-82c9-e5028160b9ab.png)
+
 
 ## Credits
 
