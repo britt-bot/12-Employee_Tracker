@@ -21,7 +21,7 @@ Open the desired web browser and go to the page url for either the Repo or the D
 
 [Employee Tracker Repo](https://github.com/britt-bot/Employee_Tracker)
 
-[Employee Tracker Deploy](https://employee-tracker--homework-12.herokuapp.com)
+[Employee Tracker Deploy](https://britt-bot.github.io/Employee_Tracker)
 
 
 ## Usage 
