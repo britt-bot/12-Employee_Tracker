@@ -28,6 +28,8 @@ Open the desired web browser and go to the page url for either the Repo or the D
 
 This app is used to create, monitor and edit employee information.
 
+![screenshot](https://user-images.githubusercontent.com/77466708/139357195-a46f9bf5-8262-4194-aac9-30bde0d500cb.png)
+
 
 
 ## Credits
@@ -68,5 +70,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
